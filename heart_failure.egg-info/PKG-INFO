@@ -1,0 +1,9 @@
+Metadata-Version: 2.4
+Name: heart_failure
+Version: 0.0.0
+Author: Naveen
+Author-email: naveenyadavgolla04@gmail.com
+License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: license-file
