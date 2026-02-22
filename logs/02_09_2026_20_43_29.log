@@ -1,0 +1,8 @@
+[ 2026-02-09 20:43:30 ] INFO | root | Entered start_data_ingestion method of TrainPipeline class
+[ 2026-02-09 20:43:30 ] INFO | root | Fetching data from MongoDB
+[ 2026-02-09 20:43:30 ] ERROR | root | Error occurred in start_data_ingestion
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\pipeline\training_pipeline.py", line 61, in start_data_ingestion
+    data_ingestion.initiate_data_ingestion()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'DataIngestion' object has no attribute 'initiate_data_ingestion'

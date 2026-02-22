@@ -6,14 +6,14 @@ from heart_failure.logger import logging
 from heart_failure.components.data_ingestion import DataIngestion
 from heart_failure.components.data_validation import DataValidation
 from heart_failure.components.data_transformation import DataTransformation
-from heart_failure.components.model_trainer import ModelTrainer
-from heart_failure.components.model_evaluation import ModelEvaluation
-from heart_failure.components.model_pusher import ModelPusher
+#from heart_failure.components.model_trainer import ModelTrainer
+#from heart_failure.components.model_evaluation import ModelEvaluation
+#from heart_failure.components.model_pusher import ModelPusher
 
 from heart_failure.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
-   #DataTransformationConfig,
+   DataTransformationConfig,
    #ModelTrainerConfig,
    #ModelEvaluationConfig,
    #ModelPusherConfig,
@@ -21,8 +21,8 @@ from heart_failure.entity.config_entity import (
 
 from heart_failure.entity.artifact_entity import (
     DataIngestionArtifact,
-   #DataValidationArtifact,
-   #DataTransformationArtifact,
+   DataValidationArtifact,
+   DataTransformationArtifact,
    #ModelTrainerArtifact,
    #ModelEvaluationArtifact,
    #ModelPusherArtifact,
@@ -32,7 +32,7 @@ class TrainPipeline:
     def __init__(self):
         self.data_ingestion_config = DataIngestionConfig()
         self.data_validation_config = DataValidationConfig()
-       #self.data_transformation_config = DataTransformationConfig()
+        self.data_transformation_config = DataTransformationConfig()
        #self.model_trainer_config = ModelTrainerConfig()
        #self.model_evaluation_config = ModelEvaluationConfig()
        #self.model_pusher_config = ModelPusherConfig()
@@ -117,3 +117,46 @@ class TrainPipeline:
                 exc_info=True
             )
             raise HeartFailureException(e, sys) from e
+        
+
+    def start_data_transformation(self, data_ingestion_artifact: DataIngestionArtifact, data_validation_artifact: DataValidationArtifact) -> DataTransformationArtifact:
+        """
+        This method of TrainPipeline class is responsible for starting data transformation component
+        """
+        try:
+            data_transformation = DataTransformation(data_ingestion_artifact=data_ingestion_artifact,
+                                                     data_transformation_config=self.data_transformation_config,
+                                                     data_validation_artifact=data_validation_artifact)
+            data_transformation_artifact = data_transformation.initiate_data_transformation()
+            return data_transformation_artifact
+        except Exception as e:
+            raise HeartFailureException(e, sys)
+        
+        
+
+    def run_pipeline(self) -> None:
+        """
+        This method of TrainPipeline class is responsible for running
+        the Heart Failure pipeline up to data transformation
+        """
+        try:
+            # Data Ingestion
+            data_ingestion_artifact = self.start_data_ingestion()
+
+            # Data Validation
+            data_validation_artifact = self.start_data_validation(
+                data_ingestion_artifact=data_ingestion_artifact
+            )
+
+            # Data Transformation
+            data_transformation_artifact = self.start_data_transformation(
+                data_ingestion_artifact=data_ingestion_artifact,
+                data_validation_artifact=data_validation_artifact
+            )
+
+            logging.info(
+                f"Data Transformation completed successfully: {data_transformation_artifact}"
+            )
+
+        except Exception as e:
+            raise HeartFailureException(e, sys)

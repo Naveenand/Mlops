@@ -135,17 +135,13 @@ def load_numpy_array_data(file_path: str) -> np.array:
 # DATAFRAME UTILITIES
 
 
-def drop_columns(df: DataFrame, cols: list) -> DataFrame:
-    """
-    Drop columns from pandas DataFrame
-    """
-    logger.info("Entered drop_columns method")
-
-    try:
-        df = df.drop(columns=cols, axis=1)
-
-        logger.info("Columns dropped successfully")
+def drop_columns(df, cols):
+    if not cols:
         return df
 
-    except Exception as e:
-        raise HeartFailureException(e, sys) from e
+    existing_cols = [col for col in cols if col in df.columns]
+
+    if not existing_cols:
+        return df
+
+    return df.drop(columns=existing_cols, axis=1)

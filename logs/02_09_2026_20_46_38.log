@@ -1,0 +1,260 @@
+[ 2026-02-09 20:46:40 ] INFO | root | Entered start_data_ingestion method of TrainPipeline class
+[ 2026-02-09 20:46:40 ] INFO | root | Fetching data from MongoDB
+[ 2026-02-09 20:46:40 ] INFO | root | Entered initiate_data_ingestion method of DataIngestion class
+[ 2026-02-09 20:46:40 ] INFO | root | Exporting data from MongoDB
+[ 2026-02-09 20:46:40 ] ERROR | root | Failed to export data into feature store
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py", line 19, in __init__
+    raise Exception(f"Environment Key: {MONGODB_URL_KEY} is not set.")
+Exception: Environment Key: MONGODB_URL is not set.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 13, in __init__
+    self.mongo_client = MongoDBClient(database_name=DATABASE_NAME)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py", line 26, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 37, in export_data_into_feature_store
+    heart_failure_data = HeartFailureData()
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 15, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+================================================================================
+[ 2026-02-09 20:46:40 ] ERROR | root | Error occurred during data ingestion
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py", line 19, in __init__
+    raise Exception(f"Environment Key: {MONGODB_URL_KEY} is not set.")
+Exception: Environment Key: MONGODB_URL is not set.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 13, in __init__
+    self.mongo_client = MongoDBClient(database_name=DATABASE_NAME)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py", line 26, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 37, in export_data_into_feature_store
+    heart_failure_data = HeartFailureData()
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 15, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 137, in initiate_data_ingestion
+    dataframe = self.export_data_into_feature_store()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 66, in export_data_into_feature_store
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 37
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+================================================================================
+================================================================================
+[ 2026-02-09 20:46:40 ] ERROR | root | Error occurred in start_data_ingestion
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py", line 19, in __init__
+    raise Exception(f"Environment Key: {MONGODB_URL_KEY} is not set.")
+Exception: Environment Key: MONGODB_URL is not set.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 13, in __init__
+    self.mongo_client = MongoDBClient(database_name=DATABASE_NAME)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py", line 26, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 37, in export_data_into_feature_store
+    heart_failure_data = HeartFailureData()
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 15, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 137, in initiate_data_ingestion
+    dataframe = self.export_data_into_feature_store()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 66, in export_data_into_feature_store
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 37
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+================================================================================
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\pipeline\training_pipeline.py", line 61, in start_data_ingestion
+    data_ingestion.initiate_data_ingestion()
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 165, in initiate_data_ingestion
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 137
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 37
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : Exception
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 19
+Error Message  : Environment Key: MONGODB_URL is not set.
+================================================================================
+================================================================================
+================================================================================
+================================================================================

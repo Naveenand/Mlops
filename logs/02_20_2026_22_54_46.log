@@ -1,0 +1,377 @@
+[ 2026-02-20 22:54:51 ] INFO | root | Entered start_data_ingestion method of TrainPipeline class
+[ 2026-02-20 22:54:51 ] INFO | root | Fetching data from MongoDB
+[ 2026-02-20 22:54:51 ] INFO | root | Entered initiate_data_ingestion method of DataIngestion class
+[ 2026-02-20 22:54:51 ] INFO | root | Exporting data from MongoDB
+[ 2026-02-20 22:54:51 ] ERROR | root | Failed to export data into feature store
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 108, in _resolve_uri
+    results = _resolve(
+              ^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 53, in _resolve
+    return resolver.resolve(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 1572, in resolve
+    return get_default_resolver().resolve(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 1314, in resolve
+    (request, answer) = resolution.next_request()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 758, in next_request
+    raise NXDOMAIN(qnames=self.qnames_to_try, responses=self.nxdomain_responses)
+dns.resolver.NXDOMAIN: The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py", line 20, in __init__
+    MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 891, in __init__
+    self._get_topology()  # type: ignore[unused-coroutine]
+    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1758, in _get_topology
+    self._resolve_srv()
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 910, in _resolve_srv
+    res = uri_parser._parse_srv(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\uri_parser.py", line 168, in _parse_srv
+    nodes = dns_resolver.get_hosts()
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 148, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 122, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 116, in _resolve_uri
+    raise ConfigurationError(str(exc)) from exc
+pymongo.errors.ConfigurationError: The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py", line 13, in __init__
+    self.mongo_client = MongoDBClient(database_name=DATABASE_NAME)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py", line 26, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 37, in export_data_into_feature_store
+    heart_failure_data = HeartFailureData()
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py", line 15, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+================================================================================
+[ 2026-02-20 22:54:51 ] ERROR | root | Error occurred during data ingestion
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 108, in _resolve_uri
+    results = _resolve(
+              ^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 53, in _resolve
+    return resolver.resolve(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 1572, in resolve
+    return get_default_resolver().resolve(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 1314, in resolve
+    (request, answer) = resolution.next_request()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 758, in next_request
+    raise NXDOMAIN(qnames=self.qnames_to_try, responses=self.nxdomain_responses)
+dns.resolver.NXDOMAIN: The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py", line 20, in __init__
+    MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 891, in __init__
+    self._get_topology()  # type: ignore[unused-coroutine]
+    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1758, in _get_topology
+    self._resolve_srv()
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 910, in _resolve_srv
+    res = uri_parser._parse_srv(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\uri_parser.py", line 168, in _parse_srv
+    nodes = dns_resolver.get_hosts()
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 148, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 122, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 116, in _resolve_uri
+    raise ConfigurationError(str(exc)) from exc
+pymongo.errors.ConfigurationError: The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py", line 13, in __init__
+    self.mongo_client = MongoDBClient(database_name=DATABASE_NAME)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py", line 26, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 37, in export_data_into_feature_store
+    heart_failure_data = HeartFailureData()
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py", line 15, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 137, in initiate_data_ingestion
+    dataframe = self.export_data_into_feature_store()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 66, in export_data_into_feature_store
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py
+Line Number    : 37
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+================================================================================
+================================================================================
+[ 2026-02-20 22:54:51 ] ERROR | root | Error occurred in start_data_ingestion
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 108, in _resolve_uri
+    results = _resolve(
+              ^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 53, in _resolve
+    return resolver.resolve(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 1572, in resolve
+    return get_default_resolver().resolve(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 1314, in resolve
+    (request, answer) = resolution.next_request()
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\dns\resolver.py", line 758, in next_request
+    raise NXDOMAIN(qnames=self.qnames_to_try, responses=self.nxdomain_responses)
+dns.resolver.NXDOMAIN: The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py", line 20, in __init__
+    MongoDBClient.client = pymongo.MongoClient(mongo_db_url, tlsCAFile=ca)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 891, in __init__
+    self._get_topology()  # type: ignore[unused-coroutine]
+    ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1758, in _get_topology
+    self._resolve_srv()
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 910, in _resolve_srv
+    res = uri_parser._parse_srv(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\uri_parser.py", line 168, in _parse_srv
+    nodes = dns_resolver.get_hosts()
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 148, in get_hosts
+    _, nodes = self._get_srv_response_and_hosts(True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 122, in _get_srv_response_and_hosts
+    results = self._resolve_uri(encapsulate_errors)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\srv_resolver.py", line 116, in _resolve_uri
+    raise ConfigurationError(str(exc)) from exc
+pymongo.errors.ConfigurationError: The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py", line 13, in __init__
+    self.mongo_client = MongoDBClient(database_name=DATABASE_NAME)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py", line 26, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 37, in export_data_into_feature_store
+    heart_failure_data = HeartFailureData()
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py", line 15, in __init__
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 137, in initiate_data_ingestion
+    dataframe = self.export_data_into_feature_store()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 66, in export_data_into_feature_store
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py
+Line Number    : 37
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+================================================================================
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\pipeline\training_pipeline.py", line 61, in start_data_ingestion
+    data_ingestion.initiate_data_ingestion()
+  File "C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py", line 165, in initiate_data_ingestion
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py
+Line Number    : 137
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\components\data_ingestion.py
+Line Number    : 37
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 13
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : ConfigurationError
+File Name      : C:\Users\Naveen Yadav Golla\Mlops\mlops_new_project\Mlops\heart_failure\configuration\mongo_db_connection.py
+Line Number    : 20
+Error Message  : The DNS query name does not exist: _mongodb._tcp.cluster0.zilhgkt.mongodb.net.
+================================================================================
+================================================================================
+================================================================================
+================================================================================

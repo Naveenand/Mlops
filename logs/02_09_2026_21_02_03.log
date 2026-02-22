@@ -1,0 +1,420 @@
+[ 2026-02-09 21:02:09 ] INFO | root | Entered start_data_ingestion method of TrainPipeline class
+[ 2026-02-09 21:02:09 ] INFO | root | Fetching data from MongoDB
+[ 2026-02-09 21:02:09 ] INFO | root | Entered initiate_data_ingestion method of DataIngestion class
+[ 2026-02-09 21:02:09 ] INFO | root | Exporting data from MongoDB
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Starting topology monitoring", "topologyId": {"$oid": "698a9fb156a784b80912adff"}}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Topology description changed", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "previousDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: Unknown, servers: []>", "newDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>]>"}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Starting server monitoring", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Starting server monitoring", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Starting server monitoring", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection pool created", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection pool created", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection pool created", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] INFO | root | MongoDB connection successful
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.serverSelection | {"message": "Server selection started", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "698a9fb156a784b80912adff"}}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.serverSelection | {"message": "Waiting for suitable server to become available", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "remainingTimeMS": 30000}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Server heartbeat started", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverHost": "ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": false}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Server heartbeat started", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": false}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverConnectionId": 215675, "serverHost": "ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": false, "durationMS": 47.000000000025466, "reply": "{\"helloOk\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6984e58014d79af5e10a8c50\"}, \"counter\": 4}, \"hosts\": [\"ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net:27017\", \"ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net:27017\", \"ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net:27017\"], \"setName\": \"atlas-c7rtic-shard-0\", \"setVersion\": 13, \"secondary\": true, \"primary\": \"ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net:27017\", \"tags\": {\"diskState\": \"READY\", \"region\": \"US_EAST_1\", \"workloadType\": \"OPERATIONAL\", \"availabilityZone\": \"use1-az1\", \"provider\": \"AWS\", \"nodeType\": \"ELECTABLE\"}, \"me\": \"ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net:27017\", \"lastWrite\": {\"opTime\": {\"ts\": {\"$timestamp\": {\"t\": 1770692530, \"i\": 1}}, \"t\": 17}, \"lastWriteDate\": {\"$date\": \"2026-02-10T03:02:10Z\"}, \"majorityOpTime\": {\"ts\": {\"$timestamp\": {\"t\": 1770692530, \"i\": 1}}, \"t\": 17}, \"majorityWriteDate\": {\"$date\": \"2026-02-10T03:02:10Z\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime..."}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection pool ready", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Topology description changed", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "previousDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>]>"}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Server heartbeat started", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverConnectionId": 215675, "serverHost": "ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": true}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverConnectionId": 226022, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": false, "durationMS": 46.99999999991178, "reply": "{\"helloOk\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6984e5c5a3edc207b4cf0985\"}, \"counter\": 6}, \"hosts\": [\"ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net:27017\", \"ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net:27017\", \"ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net:27017\"], \"setName\": \"atlas-c7rtic-shard-0\", \"setVersion\": 13, \"ismaster\": true, \"primary\": \"ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net:27017\", \"tags\": {\"provider\": \"AWS\", \"region\": \"US_EAST_1\", \"workloadType\": \"OPERATIONAL\", \"availabilityZone\": \"use1-az4\", \"nodeType\": \"ELECTABLE\", \"diskState\": \"READY\"}, \"me\": \"ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net:27017\", \"electionId\": {\"$oid\": \"7fffffff0000000000000011\"}, \"lastWrite\": {\"opTime\": {\"ts\": {\"$timestamp\": {\"t\": 1770692530, \"i\": 1}}, \"t\": 17}, \"lastWriteDate\": {\"$date\": \"2026-02-10T03:02:10Z\"}, \"majorityOpTime\": {\"ts\": {\"$timestamp\": {\"t\": 1770692530, \"i\": 1}}, \"t\": 17}, \"majorityWriteDate\": {\"$date\": \"2026-02-10T03:02:10Z\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\"..."}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection pool ready", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Topology description changed", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "previousDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>]>", "newDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.04699999999991178>]>"}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.serverSelection | {"message": "Server selection succeeded", "selector": "Primary()", "operation": "find", "topologyDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.04699999999991178>]>", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Server heartbeat started", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverConnectionId": 226022, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": true}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection checkout started", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection created", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017, "driverConnectionId": 1}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection closed", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017, "driverConnectionId": 1, "reason": "An error occurred while using the connection", "error": "error"}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection checkout failed", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017, "reason": "An error occurred while trying to establish a new connection", "error": "connectionError", "durationMS": 0.29700000000002547}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.topology | {"message": "Topology description changed", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "previousDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetWithPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: RSPrimary, rtt: 0.04699999999991178>]>", "newDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None, error=OperationFailure(\"bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}\")>]>"}
+[ 2026-02-09 21:02:10 ] DEBUG | pymongo.connection | {"message": "Connection pool cleared", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:10 ] ERROR | root | Failed to export data into feature store
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 28, in export_collection_as_dataframe
+    df = pd.DataFrame(list(collection.find()))
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1289, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1265, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1213, in _refresh
+    self._send_message(q)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1108, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1938, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2048, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2014, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2763, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2910, in _read
+    with self._client._conn_from_server(self._read_pref, self._server, self._session) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1867, in _conn_from_server
+    with self._checkout(server, session) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1777, in _checkout
+    with server.checkout(handler=err_handler) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1101, in checkout
+    conn = self._get_conn(checkout_started_time, handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1263, in _get_conn
+    conn = self.connect(handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1055, in connect
+    conn.authenticate()
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 510, in authenticate
+    auth.authenticate(creds, self, reauthenticate=reauthenticate)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 450, in authenticate
+    auth_func(credentials, conn)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 355, in _authenticate_default
+    return _authenticate_scram(credentials, conn, "SCRAM-SHA-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 135, in _authenticate_scram
+    res = conn.command(source, cmd)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\helpers.py", line 47, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 398, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\network.py", line 212, in command
+    helpers_shared._check_command_response(
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\helpers_shared.py", line 284, in _check_command_response
+    raise OperationFailure(errmsg, code, response, max_wire_version)
+pymongo.errors.OperationFailure: bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 39, in export_data_into_feature_store
+    dataframe = heart_failure_data.export_collection_as_dataframe(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 34, in export_collection_as_dataframe
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : OperationFailure
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 28
+Error Message  : bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+================================================================================
+[ 2026-02-09 21:02:10 ] ERROR | root | Error occurred during data ingestion
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 28, in export_collection_as_dataframe
+    df = pd.DataFrame(list(collection.find()))
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1289, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1265, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1213, in _refresh
+    self._send_message(q)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1108, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1938, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2048, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2014, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2763, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2910, in _read
+    with self._client._conn_from_server(self._read_pref, self._server, self._session) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1867, in _conn_from_server
+    with self._checkout(server, session) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1777, in _checkout
+    with server.checkout(handler=err_handler) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1101, in checkout
+    conn = self._get_conn(checkout_started_time, handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1263, in _get_conn
+    conn = self.connect(handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1055, in connect
+    conn.authenticate()
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 510, in authenticate
+    auth.authenticate(creds, self, reauthenticate=reauthenticate)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 450, in authenticate
+    auth_func(credentials, conn)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 355, in _authenticate_default
+    return _authenticate_scram(credentials, conn, "SCRAM-SHA-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 135, in _authenticate_scram
+    res = conn.command(source, cmd)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\helpers.py", line 47, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 398, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\network.py", line 212, in command
+    helpers_shared._check_command_response(
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\helpers_shared.py", line 284, in _check_command_response
+    raise OperationFailure(errmsg, code, response, max_wire_version)
+pymongo.errors.OperationFailure: bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 39, in export_data_into_feature_store
+    dataframe = heart_failure_data.export_collection_as_dataframe(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 34, in export_collection_as_dataframe
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : OperationFailure
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 28
+Error Message  : bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 137, in initiate_data_ingestion
+    dataframe = self.export_data_into_feature_store()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 66, in export_data_into_feature_store
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 39
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : OperationFailure
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 28
+Error Message  : bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+================================================================================
+================================================================================
+[ 2026-02-09 21:02:10 ] ERROR | root | Error occurred in start_data_ingestion
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 28, in export_collection_as_dataframe
+    df = pd.DataFrame(list(collection.find()))
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1289, in __next__
+    return self.next()
+           ^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1265, in next
+    if len(self._data) or self._refresh():
+                          ^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1213, in _refresh
+    self._send_message(q)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\cursor.py", line 1108, in _send_message
+    response = client._run_operation(
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1938, in _run_operation
+    return self._retryable_read(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2048, in _retryable_read
+    return self._retry_internal(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\_csot.py", line 125, in csot_wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2014, in _retry_internal
+    ).run()
+      ^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2763, in run
+    return self._read() if self._is_read else self._write()
+           ^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 2910, in _read
+    with self._client._conn_from_server(self._read_pref, self._server, self._session) as (
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1867, in _conn_from_server
+    with self._checkout(server, session) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\mongo_client.py", line 1777, in _checkout
+    with server.checkout(handler=err_handler) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\contextlib.py", line 137, in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1101, in checkout
+    conn = self._get_conn(checkout_started_time, handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1263, in _get_conn
+    conn = self.connect(handler=handler)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 1055, in connect
+    conn.authenticate()
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 510, in authenticate
+    auth.authenticate(creds, self, reauthenticate=reauthenticate)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 450, in authenticate
+    auth_func(credentials, conn)
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 355, in _authenticate_default
+    return _authenticate_scram(credentials, conn, "SCRAM-SHA-1")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\auth.py", line 135, in _authenticate_scram
+    res = conn.command(source, cmd)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\helpers.py", line 47, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\pool.py", line 398, in command
+    return command(
+           ^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\synchronous\network.py", line 212, in command
+    helpers_shared._check_command_response(
+  File "C:\Users\Naveen Yadav Golla\.conda\envs\hearts\Lib\site-packages\pymongo\helpers_shared.py", line 284, in _check_command_response
+    raise OperationFailure(errmsg, code, response, max_wire_version)
+pymongo.errors.OperationFailure: bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 39, in export_data_into_feature_store
+    dataframe = heart_failure_data.export_collection_as_dataframe(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py", line 34, in export_collection_as_dataframe
+    raise HeartFailureException(e,sys)
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : OperationFailure
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 28
+Error Message  : bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 137, in initiate_data_ingestion
+    dataframe = self.export_data_into_feature_store()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 66, in export_data_into_feature_store
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 39
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : OperationFailure
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 28
+Error Message  : bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+================================================================================
+================================================================================
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\pipeline\training_pipeline.py", line 61, in start_data_ingestion
+    data_ingestion.initiate_data_ingestion()
+  File "C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py", line 165, in initiate_data_ingestion
+    raise HeartFailureException(e, sys) from e
+heart_failure.exception.HeartFailureException: 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 137
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : HeartFailureException
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\components\data_ingestion.py
+Line Number    : 39
+Error Message  : 
+================================================================================
+\u274c Heart Failure Pipeline Exception
+--------------------------------------------------------------------------------
+Exception Type : OperationFailure
+File Name      : C:\Users\Naveen Yadav Golla\MLops\mlops_new_project\mlops\heart_failure\data_access\heart_failure_data.py
+Line Number    : 28
+Error Message  : bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}
+================================================================================
+================================================================================
+================================================================================
+[ 2026-02-09 21:02:11 ] DEBUG | pymongo.topology | {"message": "Server heartbeat failed", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": true, "durationMS": 500.0, "failure": "\"_OperationCancelled('operation cancelled')\"", "driverConnectionId": 1}
+[ 2026-02-09 21:02:11 ] DEBUG | pymongo.topology | {"message": "Server heartbeat failed", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": true, "durationMS": 516.0000000000764, "failure": "\"_OperationCancelled('operation cancelled')\"", "driverConnectionId": 1}
+[ 2026-02-09 21:02:11 ] DEBUG | pymongo.topology | {"message": "Server heartbeat started", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverHost": "ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": false}
+[ 2026-02-09 21:02:11 ] DEBUG | pymongo.topology | {"message": "Server heartbeat succeeded", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "driverConnectionId": 1, "serverConnectionId": 213850, "serverHost": "ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net", "serverPort": 27017, "awaited": false, "durationMS": 47.000000000025466, "reply": "{\"helloOk\": true, \"topologyVersion\": {\"processId\": {\"$oid\": \"6984e60be02eed711c531c2f\"}, \"counter\": 3}, \"hosts\": [\"ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net:27017\", \"ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net:27017\", \"ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net:27017\"], \"setName\": \"atlas-c7rtic-shard-0\", \"setVersion\": 13, \"secondary\": true, \"primary\": \"ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net:27017\", \"tags\": {\"region\": \"US_EAST_1\", \"provider\": \"AWS\", \"nodeType\": \"ELECTABLE\", \"workloadType\": \"OPERATIONAL\", \"availabilityZone\": \"use1-az2\", \"diskState\": \"READY\"}, \"me\": \"ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net:27017\", \"lastWrite\": {\"opTime\": {\"ts\": {\"$timestamp\": {\"t\": 1770692531, \"i\": 1}}, \"t\": 17}, \"lastWriteDate\": {\"$date\": \"2026-02-10T03:02:11Z\"}, \"majorityOpTime\": {\"ts\": {\"$timestamp\": {\"t\": 1770692531, \"i\": 1}}, \"t\": 17}, \"majorityWriteDate\": {\"$date\": \"2026-02-10T03:02:11Z\"}}, \"maxBsonObjectSize\": 16777216, \"maxMessageSizeBytes\": 48000000, \"maxWriteBatchSize\": 100000, \"localTime..."}
+[ 2026-02-09 21:02:11 ] DEBUG | pymongo.connection | {"message": "Connection pool ready", "clientId": {"$oid": "698a9fb156a784b80912adff"}, "serverHost": "ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net", "serverPort": 27017}
+[ 2026-02-09 21:02:11 ] DEBUG | pymongo.topology | {"message": "Topology description changed", "topologyId": {"$oid": "698a9fb156a784b80912adff"}, "previousDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None, error=OperationFailure(\"bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}\")>]>", "newDescription": "<TopologyDescription id: 698a9fb156a784b80912adff, topology_type: ReplicaSetNoPrimary, servers: [<ServerDescription ('ac-vlxydzu-shard-00-00.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-01.zilhgkt.mongodb.net', 27017) server_type: RSSecondary, rtt: 0.047000000000025466>, <ServerDescription ('ac-vlxydzu-shard-00-02.zilhgkt.mongodb.net', 27017) server_type: Unknown, rtt: None, error=OperationFailure(\"bad auth : authentication failed, full error: {'ok': 0, 'errmsg': 'bad auth : authentication failed', 'code': 8000, 'codeName': 'AtlasError'}\")>]>"}
