@@ -19,6 +19,8 @@ Model evaluation
 
 Model deployment using FastAPI
 
+
+
 🎯 Project Objectives
 
 The main objectives of this project are:
@@ -32,6 +34,8 @@ Develop a FastAPI-based prediction system
 Provide a user-friendly web interface
 
 Demonstrate production-style ML project structure
+
+
 
 🧠 Machine Learning Features
 
@@ -55,8 +59,10 @@ DEATH_EVENT
 Value	Meaning
 0	Patient survived
 1	Death due to heart failure
-⚙️ Machine Learning Pipeline
 
+
+
+⚙️ Machine Learning Pipeline
 This project follows a structured ML pipeline architecture.
 
 1️⃣ Data Ingestion
@@ -82,6 +88,9 @@ Models are evaluated using performance metrics to select the best model.
 6️⃣ Prediction Pipeline
 
 Loads the trained model and performs predictions based on user input.
+
+
+
 
 🏗️ Project Architecture
 heart_failure_prediction
@@ -145,9 +154,14 @@ The model predicts the risk of heart failure
 
 The prediction result is displayed on the web page
 
+
 🚀 Running the Project
+
+
 1️⃣ Clone the Repository
 git clone https://github.com/yourusername/heart-failure-prediction.git
+
+
 2️⃣ Navigate to the Project Directory
 cd heart-failure-prediction
 3️⃣ Create Virtual Environment
@@ -162,13 +176,17 @@ venv\Scripts\activate
 Mac / Linux
 
 source venv/bin/activate
+
 4️⃣ Install Dependencies
 pip install -r requirements.txt
+
+
 5️⃣ Train the Model
 
 Open browser:
 
 http://localhost:8000/train
+
 6️⃣ Run the Application
 python app.py
 
