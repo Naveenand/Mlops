@@ -1,6 +1,4 @@
-# Mlops
 ❤️ Heart Failure Prediction System
-
 📌 Project Overview
 
 The Heart Failure Prediction System is a machine learning web application designed to predict the risk of death due to heart failure using clinical patient data.
@@ -52,7 +50,7 @@ serum_sodium	Sodium level in blood
 sex	Gender of the patient
 smoking	Whether the patient smokes
 time	Follow-up period in days
-Target Variable
+🎯 Target Variable
 DEATH_EVENT
 Value	Meaning
 0	Patient survived
@@ -117,6 +115,8 @@ heart_failure_prediction
 ├── app.py
 ├── requirements.txt
 └── README.md
+
+
 📊 Dataset Information
 
 Dataset used: Heart Failure Clinical Records Dataset
@@ -133,17 +133,17 @@ Problem type: Binary Classification
 
 🖥️ Application Workflow
 
-User opens the web application.
+User opens the web application
 
-User enters patient medical information.
+User enters patient medical information
 
-Data is sent to the FastAPI backend.
+Data is sent to the FastAPI backend
 
-The machine learning model processes the input data.
+The machine learning model processes the input data
 
-The model predicts the risk of heart failure.
+The model predicts the risk of heart failure
 
-The prediction result is displayed on the web page.
+The prediction result is displayed on the web page
 
 🚀 Running the Project
 1️⃣ Clone the Repository
@@ -153,7 +153,7 @@ cd heart-failure-prediction
 3️⃣ Create Virtual Environment
 python -m venv venv
 
-Activate environment:
+Activate environment
 
 Windows
 
@@ -184,17 +184,20 @@ High Risk of Death
 or
 
 Low Risk of Death
-🛠 Technologies Used
-Technology	Purpose
-Python	Programming language
-FastAPI	Web framework
-Scikit-learn	Machine learning
-Pandas	Data analysis
-NumPy	Numerical computation
-Bootstrap	Frontend styling
-Jinja2	HTML templating
-Uvicorn	ASGI server
-👨‍💻 Author
 
+
+🛠 Technologies Used
+Technology	          Purpose
+Python	              Programming language
+FastAPI	              Web framework
+Scikit-learn	      Machine learning
+Pandas	              Data analysis
+NumPy	              Numerical computation
+Bootstrap	          Frontend styling
+Jinja2	              HTML templating
+Uvicorn	              ASGI server
+
+
+👨‍💻 Author
 Naveen Yadav Golla
 University of Alabama at Birmingham
