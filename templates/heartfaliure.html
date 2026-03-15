@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Heart Failure Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light static-top">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Heart Failure Prediction</span>
+        </div>
+    </nav>
+
+    <section>
+        <div class="container-fluid">
+            <div class="container">
+                <form action="/" method="post">
+                    <legend>Heart Failure Input Form</legend>
+
+                    <div class="mb-3">
+                        <label for="age">Age</label>
+                        <input type="number" class="form-control" id="age" name="age" min="20" max="100" placeholder="Enter age" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="anaemia">Anaemia</label>
+                        <select class="form-control" id="anaemia" name="anaemia" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="creatinine_phosphokinase">Creatinine Phosphokinase (CPK)</label>
+                        <input type="number" class="form-control" id="creatinine_phosphokinase" name="creatinine_phosphokinase" min="23" max="7861" placeholder="Enter CPK value" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="diabetes">Diabetes</label>
+                        <select class="form-control" id="diabetes" name="diabetes" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="ejection_fraction">Ejection Fraction (%)</label>
+                        <input type="number" class="form-control" id="ejection_fraction" name="ejection_fraction" min="14" max="80" placeholder="Enter ejection fraction" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="high_blood_pressure">High Blood Pressure</label>
+                        <select class="form-control" id="high_blood_pressure" name="high_blood_pressure" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="platelets">Platelets (kiloplatelets/mL)</label>
+                        <input type="number" class="form-control" id="platelets" name="platelets" min="25100" max="850000" placeholder="Enter platelets" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="serum_creatinine">Serum Creatinine (mg/dL)</label>
+                        <input type="number" step="0.01" class="form-control" id="serum_creatinine" name="serum_creatinine" min="0.5" max="9.4" placeholder="Enter serum creatinine" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="serum_sodium">Serum Sodium (mEq/L)</label>
+                        <input type="number" class="form-control" id="serum_sodium" name="serum_sodium" min="113" max="148" placeholder="Enter serum sodium" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="sex">Sex</label>
+                        <select class="form-control" id="sex" name="sex" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="0">Female</option>
+                            <option value="1">Male</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="smoking">Smoking</label>
+                        <select class="form-control" id="smoking" name="smoking" required>
+                            <option value="" disabled selected>Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="time">Follow-up Period (days)</label>
+                        <input type="number" class="form-control" id="time" name="time" min="4" max="285" placeholder="Enter follow-up time" required>
+                    </div>
+
+                    <input class="btn btn-primary" type="submit" value="Predict Heart Failure Risk" />
+                </form>
+            </div>
+
+            <div class="text-center text-black mt-4">
+                <h2 class="display-6 fw-bold">Prediction Result: {{ context }}</h2>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script type="text/javascript">
+        $(".input").focus(function(){
+            $(this).parent().addClass("focus");
+        }).blur(function(){
+            if($(this).val() === ''){
+                $(this).parent().removeClass("focus");
+            }
+        })
+    </script>
+  </body>
+</html>

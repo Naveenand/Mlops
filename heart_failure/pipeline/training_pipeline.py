@@ -7,16 +7,16 @@ from heart_failure.components.data_ingestion import DataIngestion
 from heart_failure.components.data_validation import DataValidation
 from heart_failure.components.data_transformation import DataTransformation
 from heart_failure.components.model_trainer import ModelTrainer
-#from heart_failure.components.model_evaluation import ModelEvaluation
-#from heart_failure.components.model_pusher import ModelPusher
+from heart_failure.components.model_evaluation import ModelEvaluation
+from heart_failure.components.model_pusher import ModelPusher
 
 from heart_failure.entity.config_entity import (
     DataIngestionConfig,
     DataValidationConfig,
    DataTransformationConfig,
    ModelTrainerConfig,
-   #ModelEvaluationConfig,
-   #ModelPusherConfig,
+   ModelEvaluationConfig,
+   ModelPusherConfig,
 )
 
 from heart_failure.entity.artifact_entity import (
@@ -24,8 +24,8 @@ from heart_failure.entity.artifact_entity import (
    DataValidationArtifact,
    DataTransformationArtifact,
    ModelTrainerArtifact,
-   #ModelEvaluationArtifact,
-   #ModelPusherArtifact,
+   ModelEvaluationArtifact,
+   ModelPusherArtifact,
 )
 
 class TrainPipeline:
@@ -34,8 +34,8 @@ class TrainPipeline:
         self.data_validation_config = DataValidationConfig()
         self.data_transformation_config = DataTransformationConfig()
         self.model_trainer_config = ModelTrainerConfig()
-       #self.model_evaluation_config = ModelEvaluationConfig()
-       #self.model_pusher_config = ModelPusherConfig()
+        self.model_evaluation_config = ModelEvaluationConfig()
+        self.model_pusher_config = ModelPusherConfig()
 
     # ======================================================
     # DATA INGESTION
@@ -153,6 +153,56 @@ class TrainPipeline:
         except Exception as e:
             raise HeartFailureException(e, sys)
             
+# ==========================================
+# Model Evaluation Starter
+# ==========================================
+
+    def start_model_evaluation(
+            self,
+            data_ingestion_artifact: DataIngestionArtifact,
+            model_trainer_artifact: ModelTrainerArtifact
+    ) -> ModelEvaluationArtifact:
+        """
+        This method starts the model evaluation stage
+        of the Heart Failure pipeline
+        """
+
+        try:
+            model_evaluation = ModelEvaluation(
+                model_eval_config=self.model_evaluation_config,
+                data_ingestion_artifact=data_ingestion_artifact,
+                model_trainer_artifact=model_trainer_artifact
+            )
+
+            model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
+
+            logging.info(
+                f"Model Evaluation completed successfully: {model_evaluation_artifact}"
+            )
+
+            return model_evaluation_artifact
+
+        except Exception as e:
+            raise HeartFailureException(e, sys)
+        
+    def start_model_pusher(self, model_evaluation_artifact: ModelEvaluationArtifact) -> ModelPusherArtifact:
+        """
+        This method of TrainPipeline class is responsible for starting the
+        model pushing stage in the Heart Failure pipeline
+        """
+        try:
+            model_pusher = ModelPusher(
+                model_evaluation_artifact=model_evaluation_artifact,
+                model_pusher_config=self.model_pusher_config
+            )
+            model_pusher_artifact = model_pusher.initiate_model_pusher()
+            return model_pusher_artifact
+
+        except Exception as e:
+            raise HeartFailureException(e, sys) from e
+
+
+
 
     def run_pipeline(self) -> None:
         """
@@ -185,6 +235,34 @@ class TrainPipeline:
             logging.info(
                 f"Model Training completed successfully: {model_trainer_artifact}"
             )
+
+                # ==========================
+            # 5. Model Evaluation
+            # ==========================
+            model_evaluation_artifact = self.start_model_evaluation(
+                data_ingestion_artifact=data_ingestion_artifact,
+                model_trainer_artifact=model_trainer_artifact
+            )
+
+            # ==========================
+            # 6. Model Acceptance Check
+            # ==========================
+            if not model_evaluation_artifact.is_model_accepted:
+                logging.info("New model is not better than production model.")
+                return None
+            
+
+            # ==========================
+            # 7. Model Pusher (S3 Upload)
+            # ==========================
+            model_pusher_artifact = self.start_model_pusher(
+                model_evaluation_artifact=model_evaluation_artifact
+            )
+
+            logging.info(
+                f"Model Pusher completed successfully: {model_pusher_artifact}"
+            )
+
 
 
         except Exception as e:
