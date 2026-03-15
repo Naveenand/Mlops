@@ -92,38 +92,44 @@ Loads the trained model and performs predictions based on user input.
 
 
 
+
+
 🏗️ Project Architecture
-heart_failure_prediction
-│
-├── artifacts
-│
-├── src
-│   └── heart_failure
-│       ├── components
+heart_failure_prediction/
+├── artifacts/
+├── src/
+│   └── heart_failure/
+│       ├── __init__.py
+│       ├── components/
+│       │   ├── __init__.py
 │       │   ├── data_ingestion.py
 │       │   ├── data_validation.py
 │       │   ├── data_transformation.py
 │       │   ├── model_trainer.py
 │       │   └── model_evaluation.py
-│       │
-│       ├── pipeline
+│       ├── pipeline/
+│       │   ├── __init__.py
 │       │   ├── training_pipeline.py
 │       │   └── prediction_pipeline.py
-│       │
-│       ├── entity
-│       ├── constants
-│       └── exception
-│
-├── templates
+│       ├── entity/
+│       │   └── __init__.py
+│       ├── constants/
+│       │   └── __init__.py
+│       └── exception/
+│           └── __init__.py
+├── templates/
 │   └── heart_failure.html
-│
-├── static
-│   └── css
+├── static/
+│   └── css/
 │       └── style.css
-│
 ├── app.py
 ├── requirements.txt
 └── README.md
+
+
+
+
+
 
 
 📊 Dataset Information
